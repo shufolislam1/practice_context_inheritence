@@ -1,7 +1,5 @@
 from django.shortcuts import render
-
-def root(request):
-    meals = [
+meals = [
         {
             "strMeal": "BeaverTails",
             "strMealThumb": "https://www.themealdb.com/images/media/meals/ryppsv1511815505.jpg",
@@ -53,7 +51,9 @@ def root(request):
             "idMeal": "52925"
         }
     ]
-    return render(request, 'base.html', {'data': meals})
+    
+def root(request):
+   return render(request, 'base.html', {'data': meals})
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'home.html', {'data': meals})
